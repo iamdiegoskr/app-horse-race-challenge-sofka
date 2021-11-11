@@ -37,7 +37,7 @@ public class Game extends AggregateRoot implements EventChange {
         });
 
         listener((PlayerAssigned event) -> {
-            players.put(event.getIdentificationCard(), new Player(event.getName(), event.getIdentificationCard()));
+            this.players.put(event.getIdentificationCard(), new Player(event.getName(), event.getIdentificationCard()));
         });
 
         listener((FirstPositionAssigned event) -> {

@@ -36,4 +36,5 @@ public abstract class UseCaseHandle {
         }).forEach(storedEvent -> repository.saveEvent("lane", id, storedEvent));
         events.forEach(messageService::send);
     }
+
 }

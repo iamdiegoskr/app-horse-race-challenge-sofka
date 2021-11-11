@@ -1,8 +1,4 @@
-# cargame Project
-
-### Diagrams
-
-[Enlace a los diagramas](https://drive.google.com/file/d/1ToPyoDLw8O3fAtEsClxpBje2lSw9z9bL/view?usp=sharing)
+# HORSE APP PROJECT
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 

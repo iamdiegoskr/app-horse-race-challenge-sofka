@@ -11,7 +11,7 @@ const HomePage = () => {
                     <h2 className="welcome-title">BIENVENIDO</h2>
                     <img src="/assets/winner.png" alt="flag"/>
                     <p className="welcome-text">Bienvenido a este increible juego de carreras</p>
-                    <Link to="/horseRace" className="btn-welcome">COMENZAR</Link>
+                    <Link to="/createGame" className="btn-welcome">COMENZAR</Link>
                 </div>
             </div>
         </div>

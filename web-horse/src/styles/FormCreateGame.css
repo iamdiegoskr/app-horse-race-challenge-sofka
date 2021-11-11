@@ -1,0 +1,18 @@
+.section-create-game{
+    padding: 30px;
+}
+
+.formCreateGame >*{
+    margin-bottom: 14px;
+}
+
+.btn-create-game{
+    background-color: #005bff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: .7px;
+    outline: none;
+}

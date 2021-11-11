@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import HorseRacePage from './pages/HorseRacePage';
+import FormCreateGame from './components/FormCreateGame';
 
 import {
   BrowserRouter,
@@ -17,6 +18,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/createGame" element={<FormCreateGame/>} />
         <Route path="/horseRace" element={<HorseRacePage />} />
       </Routes>
     </BrowserRouter>

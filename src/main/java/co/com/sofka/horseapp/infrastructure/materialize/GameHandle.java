@@ -41,9 +41,9 @@ public class GameHandle {
     void consumePlayerAssigned(PlayerAssigned event) {
         System.out.println("materialize product");
         BasicDBObject document = new BasicDBObject();
-        var key = "jugadores."+event.getIdentificationCard();
-        document.put(key+".cedula", event.getIdentificationCard());
-        document.put(key+".nombre", event.getName());
+        var key = "players."+event.getIdentificationCard();
+        document.put(key+".identificationCard", event.getIdentificationCard());
+        document.put(key+".name", event.getName());
 
         BasicDBObject updateObject = new BasicDBObject();
         updateObject.put("$set", document);
@@ -55,7 +55,7 @@ public class GameHandle {
     void consumeGameStarted(GameStarted event) {
         System.out.println("materialize product");
         BasicDBObject document = new BasicDBObject();
-        document.put("jugando", event.getState());
+        document.put("isPlaying", event.getState());
         BasicDBObject updateObject = new BasicDBObject();
         updateObject.put("$set", document);
         mongoClient.getDatabase("queries").getCollection("game")
@@ -67,7 +67,7 @@ public class GameHandle {
     void consumeGameFinished(GameFinished event) {
         System.out.println("materialize product");
         BasicDBObject document = new BasicDBObject();
-        document.put("jugando", event.getState());
+        document.put("isPlaying", event.getState());
         BasicDBObject updateObject = new BasicDBObject();
         updateObject.put("$set", document);
         mongoClient.getDatabase("queries").getCollection("game")
@@ -79,8 +79,8 @@ public class GameHandle {
         System.out.println("materialize carril");
         Map<String, Object> document = new HashMap<>();
         document.put("_id", event.getAggregateId());
-        document.put("meta", event.getGoal());
-        document.put("juegoId", event.getGameId());
+        document.put("goal", event.getGoal());
+        document.put("gameId", event.getGameId());
         mongoClient.getDatabase("queries").getCollection("lane")
                 .insertOne(new Document(document));
     }

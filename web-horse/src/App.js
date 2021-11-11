@@ -3,6 +3,8 @@ import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import HorseRacePage from './pages/HorseRacePage';
 import FormCreateGame from './components/FormCreateGame';
+import StoreProvider from './services/store/StoreProvider';
+import { FormAddPlayers } from './components/FormAddPlayers';
 
 import {
   BrowserRouter,
@@ -13,16 +15,17 @@ import {
 
 function App() {
   return (
-    <div className="App">
+    <StoreProvider>
       <BrowserRouter>
-      <Navbar/>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/createGame" element={<FormCreateGame/>} />
-        <Route path="/horseRace" element={<HorseRacePage />} />
-      </Routes>
-    </BrowserRouter>
-    </div>
+          <Navbar/>
+          <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/createGame" element={<FormCreateGame/>} />
+              <Route path="/addPlayer" element={<FormAddPlayers/>}/>
+              <Route path="/horseRace" element={<HorseRacePage />} />
+          </Routes>
+      </BrowserRouter>
+    </StoreProvider>
   );
 }
 

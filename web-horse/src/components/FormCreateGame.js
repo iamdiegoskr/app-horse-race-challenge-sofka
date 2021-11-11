@@ -1,12 +1,19 @@
-import React,{useState}from 'react'
+import React,{useState,useContext}from 'react'
 import '../styles/FormCreateGame.css'
 import uuid from 'react-uuid'
+import { Store } from '../services/store/Store';
+import {useNavigate} from 'react-router-dom';
+//import { Redirect } from 'react-router'
 
 const FormCreateGame = () => {
 
+    const navigate = useNavigate();
+
+    const { game, dispatch } = useContext(Store);
+
     const [data, setData] = useState({
-        kilometers:'',
-        numberOfLanes:0
+        kilometers:'100',
+        numberOfLanes:3
     })
 
 
@@ -18,14 +25,44 @@ const FormCreateGame = () => {
     }
 
     const onSubmit = e => {
+
+
+        console.log("holaa");
+
         e.preventDefault();
 
         const body = {
-            gameId: uuid(),
+            type: "sofkau.game.creategame",
+            gameId:uuid(),
             kilometers:data.kilometers,
             numberOfLanes:data.numberOfLanes
+        };
+
+        fetch("http://localhost:8080/api/createGame", {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json'
         }
-        // validateInput(data) && dispatch(postQuestion(data));
+        })
+        .then(response => {
+            dispatch({
+                type: 'create-game',
+                payload: {
+                    game,
+                    data: {
+                        gameId: uuid(),
+                        kilometers:data.kilometers,
+                        numberOfLanes:data.numberOfLanes
+                    },
+                }
+            });
+            console.log(response);
+            if(response.status === 200){
+                navigate('/addPlayer');
+            }
+        })
+
     }
 
     return (
@@ -40,6 +77,7 @@ const FormCreateGame = () => {
                         <option value="200">200  METROS</option>
                         <option value="300">300 METROS</option>
                         <option value="500">500 METROS</option>
+                        <option value="1000">1000 METROS</option>
                     </select>
                 </div>
                 <div>
@@ -48,8 +86,9 @@ const FormCreateGame = () => {
                         name="numberOfLanes"
                         type="number"
                         id="numberoflines"
-                        min="2"
+                        min="3"
                         max="8"
+                        value={data.numberOfLanes}
                         onChange={handleInputChange}
                     />
                 </div>

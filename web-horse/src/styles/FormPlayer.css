@@ -1,0 +1,13 @@
+.formPlayer input{
+    padding: 8px;
+    background: #f3efef;
+    border: none;
+    outline: none;
+    margin-right: 18px;
+    border-radius: 5px;
+    margin-bottom: 28px;
+}
+
+.title-player{
+    font-weight: bold;
+}

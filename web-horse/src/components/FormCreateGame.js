@@ -49,7 +49,6 @@ const FormCreateGame = () => {
             dispatch({
                 type: 'create-game',
                 payload: {
-                    game,
                     data: {
                         gameId: uuid(),
                         kilometers:data.kilometers,

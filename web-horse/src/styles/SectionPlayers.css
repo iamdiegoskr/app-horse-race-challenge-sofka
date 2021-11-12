@@ -2,3 +2,28 @@
     padding: 40px;
 }
 
+.players{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.players .horsedriver-image{
+    width: 40%;
+}
+
+.btn-add-players{
+    width: 100%;
+    padding: 8px;
+    border: none;
+    outline: none;
+    background: #0091ff;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-add-players:hover{
+    background: #0084e9;
+}

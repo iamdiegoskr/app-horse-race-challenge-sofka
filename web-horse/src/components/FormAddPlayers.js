@@ -19,10 +19,27 @@ export const FormAddPlayers = () => {
 
     console.log(state.numberOfLanes);
 
-    return (
-        <div className="section-players">
-            <h2>INGRESE LOS DATOS DE LOS JUGADORES</h2>
-            {showPlayerToAdd()}
-        </div>
-    )
+    if(state.numberOfLanes>0){
+        return (
+            <div className="section-players">
+                <h2>INGRESE LOS DATOS DE LOS JUGADORES</h2>
+                <div className="players">
+                    <form>
+                        {showPlayerToAdd()}
+                        <button className="btn-add-players">Crear jugadores</button>
+                    </form>
+                    <div className="horsedriver-image">
+                        <img src="/assets/horsebackground1.svg" alt="horse"/>
+                    </div>
+                </div>
+            </div>
+        )
+    }else{
+        return (
+            <div className="section-players">
+                <h2>No se puede agregar a ningun jugador</h2>
+            </div>
+        )
+    }
+
 }

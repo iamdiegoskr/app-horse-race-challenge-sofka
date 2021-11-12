@@ -1,5 +1,9 @@
 .section-create-game{
-    padding: 30px;
+    margin: 30px 80px;
+    padding: 28px;
+    border-radius: 18px;
+    background: #cac1b42b;
+    box-shadow: 2px 4px 4px -1px #d8d3d3;
 }
 
 .formCreateGame >*{
@@ -7,7 +11,7 @@
 }
 
 .btn-create-game{
-    background-color: #005bff;
+    background-color: #00ade1;
     border: none;
     padding: 8px 20px;
     border-radius: 6px;
@@ -15,4 +19,16 @@
     font-weight: bold;
     letter-spacing: .7px;
     outline: none;
+    cursor: pointer;
+}
+
+.btn-create-game:hover{
+    background: #0195c2;
+}
+
+.title-new-game{
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #000000;
+    text-shadow: 1px 0px 2px #00ade1;
 }

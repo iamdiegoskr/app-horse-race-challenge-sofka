@@ -26,9 +26,6 @@ const FormCreateGame = () => {
 
     const onSubmit = e => {
 
-
-        console.log("holaa");
-
         e.preventDefault();
 
         const body = {
@@ -66,7 +63,7 @@ const FormCreateGame = () => {
 
     return (
         <section className="section-create-game">
-            <h1>NUEVO JUEGO</h1>
+            <p className="title-new-game">NUEVO JUEGO</p>
 
             <form className="formCreateGame" onSubmit={onSubmit}>
                 <div>
